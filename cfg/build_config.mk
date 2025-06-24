@@ -37,6 +37,8 @@
 ##   This variable should always have the absolute path value.
 ##
 #>> Uses environment variable $(CPCT_PATH)
+THIS_FILE_PATH := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+CPCT_PATH      := $(THIS_FILE_PATH)../../../../cpctelera/
 
 ####
 ## SECTION 1: Project configuration 
@@ -48,7 +50,7 @@
 
 # Name of the project (without spaces, as it will be used as filename)
 #   and Z80 memory location where code will start in the generated binary
-PROJNAME   := sorcerers
+PROJNAME   := comzom
 Z80CODELOC := 0x1601 ## hay que reservar espacio para el mapa comprimido
 
 ##
@@ -142,12 +144,9 @@ include $(CPCT_PATH)/cfg/global_functions.mk
 # Convert images, tilemaps and music
 include cfg/image_conversion.mk
 include cfg/tilemap_conversion.mk
-include cfg/music_conversion.mk
 # Create compressed packs and manage CDT
 include cfg/compression.mk
 include cfg/cdt_manager.mk
-# Exporters to other platforms
-include cfg/export/android.mk
 
 # Calculate all subdirectories
 SUBDIRS       := $(filter-out ., $(shell find $(SRCDIR) -type d -print))

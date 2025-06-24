@@ -80,7 +80,7 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000690  _mappk8_size                       
      00000690  _mappk9_size                       
      00001601  s__CODE                         
-     000045D0  l__CSEG                         
+     0000439E  l__CSEG                         
      000048CF  l__CODE                         
      00005ED0  s__DATA                         
      00005F83  s__CSEG                         
@@ -496,7 +496,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CSEG                               00005F83    000045D0 =       17872. bytes (REL,CON)
+_CSEG                               00005F83    0000439E =       17310. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -546,86 +546,86 @@ _CSEG                               00005F83    000045D0 =       17872. bytes (R
      000065F2  _PrintSmallBlueBox                 main
      0000662A  _PrintLevelInfo                    main
      000066CD  _PrintEndGame                      main
-     0000682C  _PrintTip                          main
-     00006A29  _ReturnKeyPressed                  main
-     00006A6C  _Wait4Key                          main
-     00006A89  _RedefineKey                       main
+     0000682C  _ReturnKeyPressed                  main
+     0000686F  _Wait4Key                          main
+     0000688C  _RedefineKey                       main
+     000068C4  _RefreshHighScore                  main
 ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CSEG                               00005F83    000045D0 =       17872. bytes (REL,CON)
+_CSEG                               00005F83    0000439E =       17310. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00006AC1  _RefreshHighScore                  main
-     00006ADF  _InitScoreboard                    main
-     00006C4A  _RefreshScoreboard                 main
-     00006D63  _ResetObjData                      main
-     00006DBA  _PrintObject                       main
-     00006DF0  _DeleteObject                      main
-     00006E64  _PrintDust                         main
-     00006EA8  _PrintCoin                         main
-     00006EEE  _DeleteObjectInStore               main
-     00006F2A  _PrintObjectInStore                main
-     00006F5D  _CheckObject                       main
-     0000715D  _ObjectCollision                   main
-     0000720A  _ReprintObject                     main
-     000074A4  _SetObject                         main
-     00007609  _AddObjectToScoreboard             main
-     0000763B  _PrintKey                          main
-     0000765F  _CompareKeys                       main
-     00007697  _CheckActiveTile                   main
-     00007903  _PrintSprite                       main
-     00007932  _DeleteSprite                      main
-     000079A3  _AssignFrame                       main
-     000079E7  _SelectFrame                       main
-     00007C5D  _PrintExplosion                    main
-     00007CA3  _ExplodeSprite                     main
-     00007D7F  _SpriteCollision                   main
-     00007E50  _MoveUp                            main
-     00007EDD  _MoveDown                          main
-     00007F7D  _MoveLeft                          main
-     00008007  _MoveRight                         main
-     0000808E  _WalkIn                            main
-     000080B5  _Stop                              main
-     00008209  _WalkAnim                          main
-     0000824D  _Walk                              main
-     000083AA  _RunStatus                         main
-     000083C0  _PlayerLoop                        main
-     00008440  _ExplodePlayerInDuel               main
-     000084AB  _MakeDuel                          main
-     0000886A  _CheckDuel                         main
-     000088BB  _MakeShot                          main
-     00008913  _DeleteShot                        main
-     0000897C  _PrintShot                         main
-     000089A6  _MoveShot                          main
-     000089DF  _PrintWizard                       main
-     00008A20  _WizardAnim                        main
-     00008AD9  _MakeWizardAnim                    main
-     00008B35  _MoveEnemy                         main
-     00008FC5  _SetEnemyParams                    main
-     00009037  _SetEnemies                        main
-     000099CE  _CheckEnemyCollision               main
-     00009B15  _EnemyLoop                         main
-     00009B7C  _PrintStartMenu                    main
+     000068E2  _InitScoreboard                    main
+     00006A4D  _RefreshScoreboard                 main
+     00006B66  _ResetObjData                      main
+     00006BBD  _PrintObject                       main
+     00006BF3  _DeleteObject                      main
+     00006C67  _PrintDust                         main
+     00006CAB  _PrintCoin                         main
+     00006CF1  _DeleteObjectInStore               main
+     00006D2D  _PrintObjectInStore                main
+     00006D60  _CheckObject                       main
+     00006F4A  _ObjectCollision                   main
+     00006FF7  _ReprintObject                     main
+     00007291  _SetObject                         main
+     000073F6  _AddObjectToScoreboard             main
+     00007428  _PrintKey                          main
+     0000744C  _CompareKeys                       main
+     00007484  _CheckActiveTile                   main
+     000076EA  _PrintSprite                       main
+     00007719  _DeleteSprite                      main
+     0000778A  _AssignFrame                       main
+     000077CE  _SelectFrame                       main
+     00007A44  _PrintExplosion                    main
+     00007A8A  _ExplodeSprite                     main
+     00007B66  _SpriteCollision                   main
+     00007C37  _MoveUp                            main
+     00007CC4  _MoveDown                          main
+     00007D64  _MoveLeft                          main
+     00007DEE  _MoveRight                         main
+     00007E75  _WalkIn                            main
+     00007E9C  _Stop                              main
+     00007FF0  _WalkAnim                          main
+     00008034  _Walk                              main
+     00008191  _RunStatus                         main
+     000081A7  _PlayerLoop                        main
+     00008227  _ExplodePlayerInDuel               main
+     00008292  _MakeDuel                          main
+     00008651  _CheckDuel                         main
+     000086A2  _MakeShot                          main
+     000086FA  _DeleteShot                        main
+     00008763  _PrintShot                         main
+     0000878D  _MoveShot                          main
+     000087C6  _PrintWizard                       main
+     00008807  _WizardAnim                        main
+     000088C0  _MakeWizardAnim                    main
+     0000891C  _MoveEnemy                         main
+     00008DAC  _SetEnemyParams                    main
+     00008E1E  _SetEnemies                        main
+     000097B5  _CheckEnemyCollision               main
+     000098FC  _EnemyLoop                         main
+     00009963  _PrintStartMenu                    main
+     00009B44  _PrintObjInfo                      main
 ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CSEG                               00005F83    000045D0 =       17872. bytes (REL,CON)
+_CSEG                               00005F83    0000439E =       17310. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00009D5D  _PrintObjInfo                      main
-     00009F67  _StartMenu                         main
-     0000A13C  _InitValues                        main
-     0000A184  _ResetData                         main
-     0000A212  _InitGame                          main
-     0000A268  _GameOver                          main
-     0000A3B9  _main                              main
+     00009D4E  _StartMenu                         main
+     00009F23  _InitValues                        main
+     00009F6B  _ResetData                         main
+     00009FF9  _InitGame                          main
+     0000A04F  _GameOver                          main
+     0000A1A0  _main                              main
+
 ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
 Hexadecimal  [32-Bits]
 

@@ -67,15 +67,6 @@
 #include "sfx/ingame.h"			// music during game
 #include "sfx/completed.h"		// level completed theme
 
-
-
-
-
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////
 // DEFINITIONS AND VARIABLES
 ///////////////////////////////////////////////////////////////////////////////////
@@ -634,50 +625,6 @@ void PrintEndGame(u8 player) __z88dk_fastcall {
 }
 
 
-// novice help tips
-void PrintTip() {
-	PrintSprite(&spr[0]);
-	PrintSmallBlueBox();
-	switch (nTip) {
-		case 0: {
-			PrintText("TIP:@TAKE@THE@EXACT", 11, 95, 0);
-			PrintText("COINS@TO@BUY@THE", 16, 105, 0);
-			PrintText("REQUIRED@INGREDIENT", 11, 115, 0);
-			break;
-		}
-		case 1: {
-			PrintText("TIP:@GO@TO@THE@SHOP", 11, 95, 0);
-			PrintText("WHEN@YOU@CAN@GET@THE", 10, 105, 0);
-			PrintText("INGREDIENT@YOU@NEED", 11, 115, 0);
-			break;
-		}
-		case 2: {
-			PrintText("TIP:@USE@THE@WELL", 14, 95, 0);
-			PrintText("WHEN@YOU@TAKE@MORE", 13, 105, 0);
-			PrintText("COINS@THAN@YOU@NEED", 11, 115, 0);
-			break;
-		}
-		case 3: {
-			PrintText("TIP:@GO@TO@THE@EXIT", 11, 95, 0);
-			PrintText("DOOR@WHEN@YOU@HAVE", 13, 105, 0);
-			PrintText("THE@RIGHT@POTION", 15, 115, 0);
-		}
-	}
-	Pause(400);
-	while (!cpct_isAnyKeyPressed()); // wait for a key press
-	nTip++; // next message
-	PrintMap();
-}
-
-
-
-
-
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////
 // KEYBOARD FUNCTIONS
 ///////////////////////////////////////////////////////////////////////////////////
@@ -884,8 +831,6 @@ void CheckObject(u8 index) {
 			// coins
 			if (nObj[index] <= 1) {
 				cpct_akp_SFXPlay (2, 12, 79, 0, 0, AY_CHANNEL_C); // take an item
-				if (nMap == 0 && !TwoPlayers && nTip<2) 
-					PrintTip(); // novice help
 			}
 
 			switch (nObj[index])
@@ -1086,9 +1031,6 @@ void CheckActiveTile(u8 player) {
 			coinScore[player] -= nPObj - 3; // decrease the coin score
 			if (!TwoPlayers) {
 				playerKey[spr[player].objNum_mov-1] = nPObj; // add object to key
-				// novice tip
-				if (nMap == 0 && (nTip<3 || (nTip<4 && spr[0].objNum_mov >= 5)))
-					PrintTip();
 			}
 			DeleteObjectInStore();
 			AddObjectToScoreboard(player); 
@@ -2262,15 +2204,6 @@ void EnemyLoop(TSpr *pSpr) __z88dk_fastcall {
 		CheckEnemyCollision(1, pSpr);
 }
 
-
-
-
-
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////
 // MAIN MENU
 ///////////////////////////////////////////////////////////////////////////////////
@@ -2338,29 +2271,6 @@ void PrintObjInfo() {
 	PrintText("MORDOR@LAVA", 14, 179, 0);
 }
 
-/*
-// introductory help (dismissed; not enough memory)
-void PrintGameInfo() {
-	ClearScreen();
-	PrintText("THE@STORY", 26, 0, 0);
-	// blue background frame
-	cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 1, 12), cpct_px2byteM0(4, 4), 39, 180);
-	cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 40, 12), cpct_px2byteM0(4, 4), 37, 180);	
-	PrintFrame(1,12,74,186);
-
-	PrintText("EINAR@IS@DEAD>", 17, 30, 0);
-	PrintText("THE@OLD@AND@WISE", 14, 45, 0);
-	PrintText("SORCERER", 26, 60, 0);
-
-	PrintText("GUIDE@SVEN@AND@ERIK[", 11, 90, 0);
-	PrintText("SONS@OF@EINAR@AND", 14, 105, 0);
-	PrintText("SORCERERS@APPRENTICES[", 8, 120, 0);
-	PrintText("TO@THE@CASTLE@LIBRARY", 8, 135, 0);
-	PrintText("TO@GAIN@THE@KNOWLEDGE", 8, 150, 0);	
-	PrintText("OF@EINAR>", 26, 165, 0);
-}*/
-
-
 void StartMenu() {
 	u8 randSeed = 254;
 	u8 page = 0;
@@ -2421,15 +2331,6 @@ void StartMenu() {
 	cpct_akp_musicInit(g_fx); // mute the music
 	ClearScreen();
 }
-
-
-
-
-
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 // MAIN LOOP
@@ -2648,9 +2549,6 @@ void main(void) {
 		if (ctMainLoop == 174) {
 			ctMainLoop++;
 			SetObject(1); // set the second object
-
-			if (nMap == 0 && !TwoPlayers && nTip<1) 
-				PrintTip(); // novice help
 		}
 		else if (ctMainLoop++ == 350) {			
 			SetObject(0); // set the first object			

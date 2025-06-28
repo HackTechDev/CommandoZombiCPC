@@ -1882,7 +1882,11 @@ void PrintStartMenu() {
 	cpct_drawSprite(g_logo_0, cpctm_screenPtr(CPCT_VMEM_START, 0, 0), G_LOGO_0_W, G_LOGO_0_H);
 	cpct_drawSprite(g_logo_1, cpctm_screenPtr(CPCT_VMEM_START, G_LOGO_0_W, 0), G_LOGO_0_W, G_LOGO_0_H);
 
-	PrintText("1@@COMMANDO", 10, 50, 0);
+	PrintText("COMMANDO", 5, 10, 0);
+    
+
+
+	cpct_drawSpriteMaskedAlignedTable(g_sorcerer1_03, cpct_getScreenPtr(CPCT_VMEM_START, 5, 30), SPR_W, SPR_H, g_maskTable);
 
 }
 

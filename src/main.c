@@ -1953,9 +1953,9 @@ void StartMenu() {
 		// get the seed of randomness based on the time it takes to press a key
 		// switches between menu and help after 256 cycles
 		if (++randSeed == 255) {					
-			if (page == 0) 		PrintStartMenu();	// page 1; menu
-			else if(page == 4)	PrintObjInfo();		// page 2; ingredients info
-			//else if(page == 8)	PrintGameInfo();	// page 3; introductory help
+			if (page == 0) 		
+				PrintStartMenu();	// page 1; menu
+			
 			randSeed = 0;
 			if (++page == 8) //12
 				page = 0;		
@@ -1963,12 +1963,9 @@ void StartMenu() {
 		// get keystrokes from menu options
 		cpct_scanKeyboard_f();
 		if(cpct_isKeyPressed(Key_1)) { // 1 player
-			
         	break;
     	}
    		
-   		
-	
 		Pause(3);
 	}	
 	cpct_setSeed_lcg_u8(randSeed); // set the seed

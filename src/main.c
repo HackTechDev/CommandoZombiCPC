@@ -2182,10 +2182,7 @@ void main(void) {
 			}
 			// turn 2
 			case 1:	{			
-				if (TwoPlayers) {
-					PlayerLoop(&spr[1]); // player 2
-					if (!turboMode) cpct_waitVSYNC(); // additional wait for vertical retrace (avoid flickering)
-				}
+	
 				EnemyLoop(&spr[3]);	 // enemy sprite 3 is always processed (fast)
 				break;
 			}			

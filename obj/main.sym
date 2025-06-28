@@ -11,40 +11,40 @@ Symbol Table
   9 _AddObjectToScoreboard                                         1473 GR
   9 _AssignFrame                                                   1807 GR
   9 _CheckActiveTile                                               1501 GR
-  9 _CheckDuel                                                     26CE GR
-  9 _CheckEnemyCollision                                           3832 GR
+  9 _CheckDuel                                                     26D4 GR
+  9 _CheckEnemyCollision                                           3838 GR
   9 _CheckObject                                                   0DDD GR
   9 _ClearScreen                                                   0233 GR
   9 _CompareKeys                                                   14C9 GR
   9 _DeleteObject                                                  0C70 GR
   9 _DeleteObjectInStore                                           0D6E GR
-  9 _DeleteShot                                                    2777 GR
+  9 _DeleteShot                                                    277D GR
   9 _DeleteSprite                                                  1796 GR
-  9 _EnemyLoop                                                     3979 GR
-  9 _ExplodePlayerInDuel                                           22A4 GR
+  9 _EnemyLoop                                                     397F GR
+  9 _ExplodePlayerInDuel                                           22AA GR
   9 _ExplodeSprite                                                 1B07 GR
-  9 _GameOver                                                      40CC GR
+  9 _GameOver                                                      40D4 GR
   9 _GetTileNum                                                    0248 GR
-  9 _InitGame                                                      4076 GR
+  9 _InitGame                                                      407E GR
   9 _InitScoreboard                                                095F GR
-  9 _InitValues                                                    3FA0 GR
+  9 _InitValues                                                    3FA6 GR
   9 _Interrupt                                                     021A GR
   1 _Interrupt_nInt_1_148                                          00B2 R
   9 _Itoa                                                          00D0 GR
-  9 _MakeDuel                                                      230F GR
-  9 _MakeShot                                                      271F GR
-  9 _MakeWizardAnim                                                293D GR
+  9 _MakeDuel                                                      2315 GR
+  9 _MakeShot                                                      2725 GR
+  9 _MakeWizardAnim                                                2943 GR
   9 _MoveDown                                                      1D41 GR
-  9 _MoveEnemy                                                     2999 GR
-  9 _MoveLeft                                                      1DE1 GR
-  9 _MoveRight                                                     1E6B GR
-  9 _MoveShot                                                      280A GR
+  9 _MoveEnemy                                                     299F GR
+  9 _MoveLeft                                                      1DE7 GR
+  9 _MoveRight                                                     1E71 GR
+  9 _MoveShot                                                      2810 GR
   9 _MoveUp                                                        1CB4 GR
   9 _ObjectCollision                                               0FC7 GR
   9 _OnBackground                                                  0287 GR
   9 _Pause                                                         01FE GR
   9 _PlayMusic                                                     020A GR
-  9 _PlayerLoop                                                    2224 GR
+  9 _PlayerLoop                                                    222A GR
   9 _PrintCoin                                                     0D28 GR
   9 _PrintDust                                                     0CE4 GR
   9 _PrintEndGame                                                  074A GR
@@ -54,10 +54,10 @@ Symbol Table
   9 _PrintLevelInfo                                                06A7 GR
   9 _PrintMap                                                      02A8 GR
   9 _PrintNumber                                                   02BE GR
-  9 _PrintObjInfo                                                  3BC1 GR
+  9 _PrintObjInfo                                                  3BC7 GR
   9 _PrintObject                                                   0C3A GR
   9 _PrintObjectInStore                                            0DAA GR
-  9 _PrintShot                                                     27E0 GR
+  9 _PrintShot                                                     27E6 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
 Hexadecimal [16-Bits]
 
@@ -65,31 +65,31 @@ Symbol Table
 
   9 _PrintSmallBlueBox                                             066F GR
   9 _PrintSprite                                                   1767 GR
-  9 _PrintStartMenu                                                39E0 GR
+  9 _PrintStartMenu                                                39E6 GR
   9 _PrintText                                                     038D GR
-  9 _PrintWizard                                                   2843 GR
+  9 _PrintWizard                                                   2849 GR
   9 _RedefineKey                                                   0909 GR
   9 _RefreshHighScore                                              0941 GR
   9 _RefreshScoreboard                                             0ACA GR
   9 _ReprintObject                                                 1074 GR
-  9 _ResetData                                                     3FE8 GR
+  9 _ResetData                                                     3FF0 GR
   9 _ResetObjData                                                  0BE3 GR
   9 _ReturnKeyPressed                                              08A9 GR
-  9 _RunStatus                                                     220E GR
+  9 _RunStatus                                                     2214 GR
   9 _SelectFrame                                                   184B GR
-  9 _SetEnemies                                                    2E9B GR
-  9 _SetEnemyParams                                                2E29 GR
+  9 _SetEnemies                                                    2EA1 GR
+  9 _SetEnemyParams                                                2E2F GR
   9 _SetObject                                                     130E GR
   9 _SpriteCollision                                               1BE3 GR
-  9 _StartMenu                                                     3DCB GR
-  9 _Stop                                                          1F19 GR
+  9 _StartMenu                                                     3DD1 GR
+  9 _Stop                                                          1F1F GR
   9 _Strlen                                                        00C3 GR
   1 _TwoPlayers                                                    0004 GR
   9 _Wait4Key                                                      08EC GR
-  9 _Walk                                                          20B1 GR
-  9 _WalkAnim                                                      206D GR
-  9 _WalkIn                                                        1EF2 GR
-  9 _WizardAnim                                                    2884 GR
+  9 _Walk                                                          20B7 GR
+  9 _WalkAnim                                                      2073 GR
+  9 _WalkIn                                                        1EF8 GR
+  9 _WizardAnim                                                    288A GR
   9 ___str_0                                                       01B6 R
   9 ___str_1                                                       0738 R
   9 ___str_10                                                      0AAF R
@@ -99,76 +99,76 @@ Symbol Table
   9 ___str_14                                                      0ABF R
   9 ___str_15                                                      0AC5 R
   9 ___str_16                                                      0BE1 R
-  9 ___str_17                                                      26A1 R
-  9 ___str_18                                                      26A9 R
-  9 ___str_19                                                      26AF R
+  9 ___str_17                                                      26A7 R
+  9 ___str_18                                                      26AF R
+  9 ___str_19                                                      26B5 R
   9 ___str_2                                                       073E R
-  9 ___str_20                                                      26B7 R
-  9 ___str_21                                                      26BE R
-  9 ___str_22                                                      26C4 R
-  9 ___str_23                                                      3798 R
-  9 ___str_24                                                      37A5 R
-  9 ___str_25                                                      37B2 R
-  9 ___str_26                                                      37BF R
-  9 ___str_27                                                      37CC R
-  9 ___str_28                                                      37D9 R
-  9 ___str_29                                                      37E6 R
+  9 ___str_20                                                      26BD R
+  9 ___str_21                                                      26C4 R
+  9 ___str_22                                                      26CA R
+  9 ___str_23                                                      379E R
+  9 ___str_24                                                      37AB R
+  9 ___str_25                                                      37B8 R
+  9 ___str_26                                                      37C5 R
+  9 ___str_27                                                      37D2 R
+  9 ___str_28                                                      37DF R
+  9 ___str_29                                                      37EC R
   9 ___str_3                                                       0835 R
-  9 ___str_30                                                      37F3 R
-  9 ___str_31                                                      3800 R
-  9 ___str_32                                                      380C R
-  9 ___str_33                                                      3818 R
+  9 ___str_30                                                      37F9 R
+  9 ___str_31                                                      3806 R
+  9 ___str_32                                                      3812 R
+  9 ___str_33                                                      381E R
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
 Hexadecimal [16-Bits]
 
 Symbol Table
 
-  9 ___str_34                                                      3825 R
-  9 ___str_35                                                      3B0F R
-  9 ___str_36                                                      3B20 R
-  9 ___str_37                                                      3B31 R
-  9 ___str_38                                                      3B46 R
-  9 ___str_39                                                      3B58 R
+  9 ___str_34                                                      382B R
+  9 ___str_35                                                      3B15 R
+  9 ___str_36                                                      3B26 R
+  9 ___str_37                                                      3B37 R
+  9 ___str_38                                                      3B4C R
+  9 ___str_39                                                      3B5E R
   9 ___str_4                                                       0845 R
-  9 ___str_40                                                      3B6B R
-  9 ___str_41                                                      3B76 R
-  9 ___str_42                                                      3B83 R
-  9 ___str_43                                                      3B8E R
-  9 ___str_44                                                      3B96 R
-  9 ___str_45                                                      3BA3 R
-  9 ___str_46                                                      3BAE R
-  9 ___str_47                                                      3D27 R
-  9 ___str_48                                                      3D39 R
-  9 ___str_49                                                      3D3B R
+  9 ___str_40                                                      3B71 R
+  9 ___str_41                                                      3B7C R
+  9 ___str_42                                                      3B89 R
+  9 ___str_43                                                      3B94 R
+  9 ___str_44                                                      3B9C R
+  9 ___str_45                                                      3BA9 R
+  9 ___str_46                                                      3BB4 R
+  9 ___str_47                                                      3D2D R
+  9 ___str_48                                                      3D3F R
+  9 ___str_49                                                      3D41 R
   9 ___str_5                                                       084F R
-  9 ___str_50                                                      3D45 R
-  9 ___str_51                                                      3D52 R
-  9 ___str_52                                                      3D5B R
-  9 ___str_53                                                      3D68 R
-  9 ___str_54                                                      3D73 R
-  9 ___str_55                                                      3D80 R
-  9 ___str_56                                                      3D91 R
-  9 ___str_57                                                      3D9E R
-  9 ___str_58                                                      3DA7 R
-  9 ___str_59                                                      3DB5 R
+  9 ___str_50                                                      3D4B R
+  9 ___str_51                                                      3D58 R
+  9 ___str_52                                                      3D61 R
+  9 ___str_53                                                      3D6E R
+  9 ___str_54                                                      3D79 R
+  9 ___str_55                                                      3D86 R
+  9 ___str_56                                                      3D97 R
+  9 ___str_57                                                      3DA4 R
+  9 ___str_58                                                      3DAD R
+  9 ___str_59                                                      3DBB R
   9 ___str_6                                                       085E R
-  9 ___str_60                                                      3DBF R
-  9 ___str_61                                                      3F47 R
-  9 ___str_62                                                      3F4E R
-  9 ___str_63                                                      3F56 R
-  9 ___str_64                                                      3F5E R
-  9 ___str_65                                                      3F67 R
-  9 ___str_66                                                      3F70 R
-  9 ___str_67                                                      3F78 R
-  9 ___str_68                                                      3F80 R
-  9 ___str_69                                                      3F89 R
+  9 ___str_60                                                      3DC5 R
+  9 ___str_61                                                      3F4D R
+  9 ___str_62                                                      3F54 R
+  9 ___str_63                                                      3F5C R
+  9 ___str_64                                                      3F64 R
+  9 ___str_65                                                      3F6D R
+  9 ___str_66                                                      3F76 R
+  9 ___str_67                                                      3F7E R
+  9 ___str_68                                                      3F86 R
+  9 ___str_69                                                      3F8F R
   9 ___str_7                                                       0871 R
-  9 ___str_70                                                      3F92 R
-  9 ___str_71                                                      3F99 R
-  9 ___str_72                                                      41E2 R
-  9 ___str_73                                                      41F3 R
-  9 ___str_74                                                      4202 R
-  9 ___str_75                                                      4211 R
+  9 ___str_70                                                      3F98 R
+  9 ___str_71                                                      3F9F R
+  9 ___str_72                                                      41EA R
+  9 ___str_73                                                      41FB R
+  9 ___str_74                                                      420A R
+  9 ___str_75                                                      4219 R
   9 ___str_8                                                       0885 R
   9 ___str_9                                                       0894 R
     __divsint                                                      **** GX
@@ -346,7 +346,7 @@ Symbol Table
   1 _highScore                                                     0009 GR
   1 _lName                                                         0002 GR
   1 _lastNMap                                                      0001 GR
-  9 _main                                                          421D GR
+  9 _main                                                          4225 GR
     _mappk0                                                        **** GX
     _mappk1                                                        **** GX
     _mappk10                                                       **** GX
@@ -395,7 +395,7 @@ Area Table
    6 _GSFINAL                                   size    0   flags    0
    7 _g_maskTable_                              size    0   flags    8
    8 _g_maskTable_0                             size  100   flags    8
-   9 _CSEG                                      size 439E   flags    0
+   9 _CSEG                                      size 43A6   flags    0
    A _INITIALIZER                               size    0   flags    0
    B _CABS                                      size    0   flags    8
 

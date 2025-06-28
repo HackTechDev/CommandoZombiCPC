@@ -548,27 +548,6 @@ void PrintSmallBlueBox() {
 }
 
 
-// print box with the number and name of the loaded level
-void PrintLevelInfo() {
-	PrintSmallBlueBox();	
-	// if two players, the record is shown in this window, not on the scoreboard
-	if (TwoPlayers) {
-		PrintText("LEVEL", 13, 95, 0);
-		PrintText(lName, 31, 95, 0);
-		PrintText("HIGH@SCORE:", 16, 118, 0);
-		PrintNumber(highScore, 4, 52, 118, 0);
-	}
-	else {
-		PrintText("LEVEL", 13, 107, 0);
-		PrintText(lName, 31, 107, 0);
-	}
-
-	cpct_akp_musicInit(g_start); // start level music
-	Pause(1150);
-	if (music)
-		cpct_akp_musicInit(g_ingame); // music ingame
-}
-
 
 void PrintEndGame(u8 player) __z88dk_fastcall {
 	// blue background frame
@@ -577,13 +556,7 @@ void PrintEndGame(u8 player) __z88dk_fastcall {
 	PrintFrame(5,40,72,178);
 
 	PrintText("CONGRATULATIONS", 12, 60, 0);
-	PrintText("PLAYER@@>", 12, 70, 0);
-	PrintNumber(++player, 1, 33, 70, 0);
-	PrintText("YOU@FOUND@YOUR", 12, 90, 0);
-	PrintText("FATHERS@SPELL@BOOK", 12, 100, 0);
-	PrintText("NOW@YOUR@POWER@WILL", 12, 120, 0);
-	PrintText("BE@UNSURPASSED", 12, 130, 0);
-	PrintText(";THANKS@FOR@PLAYING;", 10, 160, 0);	
+	PrintText("PLAYER", 12, 70, 0);
 
 	cpct_akp_musicInit(g_completed); // completed level theme
 	Pause(1000);
@@ -2131,7 +2104,6 @@ void ResetData() {
 			playerKey[3] = 0;
 			playerKey[4] = 0;
 		}
-		PrintLevelInfo();	
 		PrintMap();	
 		lastNMap = nMap;
 	}

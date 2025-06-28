@@ -2,6 +2,7 @@
     "files.associations": {
         "door.h": "c",
         "sorcerer2.h": "c",
-        "sorcerer1.h": "c"
+        "sorcerer1.h": "c",
+        "ratio": "c"
     }
 }

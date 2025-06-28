@@ -130,7 +130,7 @@ u8 storeY;			// Y position of the store on the current map
 u8 music;			// "TRUE" = plays the music during the game, "FALSE" = only effects
 u8 enemyTurn;		// To avoid flickering sprites, the enemies logic takes turns for each cycle
 u8 ctInactivity[2];	// counters to detect inactive players
-u8 turboMode;		// disable VSYNC when turboMode = "1" or "TRUE"
+
 u8 nTip;			// control show tips
 u8 ctWizardAnim;	// organizes the wizard animation
 i16 ctMainLoop; 	// main loop iteration counter
@@ -1933,18 +1933,6 @@ void PrintStartMenu() {
 
 	PrintText("1@@1@PLAYER@GAME", 10, 50, 0);
 	PrintText("2@@2@PLAYER@GAME", 10, 60, 0);
- 
-	if (turboMode)
-		PrintText("4@@TURBO@MODE:@ON", 10, 80, 0);
-	else
-		PrintText("4@@TURBO@MODE:@OFF", 10, 80, 0);
-
-	// Sven y Erik
-	cpct_drawSpriteMaskedAlignedTable(g_sorcerer1_06, 
-		cpct_getScreenPtr(CPCT_VMEM_START, 6, 187), SPR_W, SPR_H, g_maskTable);
-	cpct_drawSpriteMaskedAlignedTable(g_sorcerer2_04, 
-		cpct_getScreenPtr(CPCT_VMEM_START, 68, 187), SPR_W, SPR_H, g_maskTable);
-
 }
 
 
@@ -2006,11 +1994,7 @@ void StartMenu() {
         	break;
     	}
    		
-		else if(cpct_isKeyPressed(Key_4)) {	// turbo mode
-			turboMode = !turboMode;
-			randSeed = 0; page = 1;
-			PrintStartMenu();
-    	}
+	
 		Pause(3);
 	}	
 	cpct_setSeed_lcg_u8(randSeed); // set the seed
@@ -2040,7 +2024,7 @@ void InitValues() {
 	ctlMusic = Key_M;
 	ctlPause = Key_H;	
 
-	turboMode = FALSE;
+
 	nTip = 0;
 }
 
@@ -2186,7 +2170,7 @@ void main(void) {
 			WizardAnim(); // print the wizard if active
 		}		
 		
-		if (!turboMode) cpct_waitVSYNC(); // wait for vertical retrace	
+		cpct_waitVSYNC(); // wait for vertical retrace	
 
 		// shift system to avoid double video buffer
 		switch (ctMainLoop % 3) {

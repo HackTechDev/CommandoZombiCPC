@@ -28,7 +28,7 @@
 #include "gfx/magic.h"			// magic shots; red, blue, green and yellow (8x8 px)
 
 #include "sprites/sorcerer1.h"	// 10 frames for SVEN, the 1st player (10x12 px)
-#include "sprites/sorcerer2.h"	// 10 frames for ERIK, the 2nd player (10x12 px)
+
 #include "sprites/sentinel.h"	// 8 frames for the sentinel sprite (10x12 px)
 #include "sprites/knight.h"		// 8 frames for the knight sprite (10x12 px)
 #include "sprites/ghost.h"		// 8 frames for the ghost sprite (10x12 px)
@@ -88,7 +88,7 @@
 
 // character types
 #define SORCERER1	0
-#define SORCERER2	1
+
 #define SENTINEL	2
 #define KNIGHT		3
 #define GHOST		4
@@ -181,7 +181,7 @@ typedef struct {
 } TSpr;
 
 TSpr spr[7];	// 0) sorcerer #1
-				// 1) sorcerer #2
+
 				// 2) enemy #1
 				// 3) enemy #2
 				// 4) enemy #3
@@ -246,23 +246,6 @@ TFrm* const animUp_Sorcerer1[2] = {&frmSorcerer1[0], &frmSorcerer1[1]};
 TFrm* const animDown_Sorcerer1[2] = {&frmSorcerer1[2], &frmSorcerer1[3]};
 TFrm* const animLeft_Sorcerer1[2] = {&frmSorcerer1[4], &frmSorcerer1[5]};
 TFrm* const animRight_Sorcerer1[2] = {&frmSorcerer1[6], &frmSorcerer1[7]};
-
-// 8 frames of Sorcerer2 in motion
-const TFrm frmSorcerer2[8] = {
-	{g_sorcerer2_00}, // up step 1
-	{g_sorcerer2_01}, // up step 2
-	{g_sorcerer2_02}, // down step 1
-	{g_sorcerer2_03}, // down step 2
-	{g_sorcerer2_04}, // left step 1
-	{g_sorcerer2_05}, // left step 2
-	{g_sorcerer2_06}, // right step 1
-	{g_sorcerer2_07}  // right step 2	
-};
-// Sorcerer2 animation sequences
-TFrm* const animUp_Sorcerer2[2] = {&frmSorcerer2[0], &frmSorcerer2[1]};
-TFrm* const animDown_Sorcerer2[2] = {&frmSorcerer2[2], &frmSorcerer2[3]};
-TFrm* const animLeft_Sorcerer2[2] = {&frmSorcerer2[4], &frmSorcerer2[5]};
-TFrm* const animRight_Sorcerer2[2] = {&frmSorcerer2[6], &frmSorcerer2[7]};
 
 // 8 frames of Sentinel in motion
 const TFrm frmSentinel[8] = {
@@ -1026,16 +1009,7 @@ void SelectFrame(TSpr *pSpr) __z88dk_fastcall {
 			case S_stopped:			{spr[0].frm = &frmSorcerer1[spr[0].dir*2];}		
 		}
 	}
-	// player 2
-	else if(pSpr->ident == SORCERER2) {
-		switch(pSpr->status) {
-			case S_walkingUp: 		{AssignFrame(&spr[1], animUp_Sorcerer2); break;}
-			case S_walkingDown:		{AssignFrame(&spr[1], animDown_Sorcerer2); break;}
-			case S_walkingLeft:		{AssignFrame(&spr[1], animLeft_Sorcerer2); break;}
-			case S_walkingRight:	{AssignFrame(&spr[1], animRight_Sorcerer2); break;}
-			case S_stopped:			{spr[1].frm = &frmSorcerer2[spr[1].dir*2];}	
-		}
-	}
+	
 	// sentinel
 	else if(pSpr->ident == SENTINEL) {
 		switch(pSpr->dir) {
@@ -1908,7 +1882,7 @@ void PrintStartMenu() {
 	cpct_drawSprite(g_logo_0, cpctm_screenPtr(CPCT_VMEM_START, 0, 0), G_LOGO_0_W, G_LOGO_0_H);
 	cpct_drawSprite(g_logo_1, cpctm_screenPtr(CPCT_VMEM_START, G_LOGO_0_W, 0), G_LOGO_0_W, G_LOGO_0_H);
 
-	PrintText("1@@1@PLAYER@GAME", 10, 50, 0);
+	PrintText("1@@COMMANDO", 10, 50, 0);
 
 }
 
@@ -2026,12 +2000,6 @@ void InitGame() {
 	score[0] = 0; // score
 	ResetObjData(0);
 	
-	// initial player 2 data
-	spr[1].num = 1; // sprite number
-	spr[1].ident = SORCERER2; // identity
-	spr[1].lives_speed = 3; // lives
-	score[1] = 0; // score
-	ResetObjData(1);
 
 	// initial wizard data
 	spr[6].num = 6; // sprite number

@@ -1933,7 +1933,7 @@ void PrintStartMenu() {
 
 	PrintText("1@@1@PLAYER@GAME", 10, 50, 0);
 	PrintText("2@@2@PLAYER@GAME", 10, 60, 0);
-    PrintText("3@@REDEFINE@CONTROLS", 10, 70, 0);
+ 
 	if (turboMode)
 		PrintText("4@@TURBO@MODE:@ON", 10, 80, 0);
 	else
@@ -2005,29 +2005,7 @@ void StartMenu() {
 			TwoPlayers = TRUE;
         	break;
     	}
-   		else if(cpct_isKeyPressed(Key_3)){ // redefine keys
-			Wait4Key(Key_3);
-			randSeed = 0; page = 1;
-			PrintStartMenu();
-			// hide credits
-			cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 22, 110), cpct_px2byteM0(1, 1), 45, 70);
-
-			// player 1
-			ctlUp[0] = 		RedefineKey("@P1@UP");
-			ctlDown[0] = 	RedefineKey("P1@DOWN");
-			ctlLeft[0] = 	RedefineKey("P1@LEFT");
-			ctlRight[0] = 	RedefineKey("P1@RIGHT");
-			// player 2
-			ctlUp[1] = 		RedefineKey("@P2@UP@@");
-			ctlDown[1] = 	RedefineKey("P2@DOWN");
-			ctlLeft[1] = 	RedefineKey("P2@LEFT");
-			ctlRight[1] = 	RedefineKey("P2@RIGHT");	
-			// common
-			ctlAbort = 		RedefineKey("@ABORT@@");
-			ctlMusic = 		RedefineKey("@MUSIC");
-			ctlPause =		RedefineKey("@PAUSE");		
-			PrintStartMenu();
-    	}
+   		
 		else if(cpct_isKeyPressed(Key_4)) {	// turbo mode
 			turboMode = !turboMode;
 			randSeed = 0; page = 1;

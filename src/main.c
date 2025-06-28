@@ -16,7 +16,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////////////////////
 
-// Sorcerers v1.0
+// Commando Zombi v0.0.1
 
 #include <cpctelera.h>
 

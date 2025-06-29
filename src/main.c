@@ -1167,30 +1167,6 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 		spr[1].lives_speed = 0;
 		GameOver(2);
 	}
-	// mute music TRUE/FALSE
-	else if(cpct_isKeyPressed(ctlMusic)) {
-		Wait4Key(ctlMusic);
-		if (music == TRUE) { // if the music is playing ...
-			music = FALSE;
-			cpct_akp_musicInit(g_fx);
-		}
-		else { // if there was no music playing ...
-			music = TRUE;			
-			cpct_akp_musicInit(g_ingame); // music ingame
-		}
-	}
-	// pause
-	else if(cpct_isKeyPressed(ctlPause)) {
-		Wait4Key(ctlPause);
-		cpct_akp_musicInit(g_fx);
-		while (!cpct_isAnyKeyPressed());
-		Wait4Key(ctlPause);
-		if (music)
-			cpct_akp_musicInit(g_ingame); // music ingame
-	}
-
-	
-	/*
 	// beta testing helper /////////////////////////////////////////
 	else if(cpct_isKeyPressed(Key_Space)) {
 		if (nMap < 11) 
@@ -1205,7 +1181,7 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 		ResetData();
 	}
 	////////////////////////////////////////////////////////////////
-	*/
+	
 }
 
 

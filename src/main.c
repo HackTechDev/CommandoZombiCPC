@@ -537,8 +537,7 @@ void PrintEndGame(u8 player) __z88dk_fastcall {
 	cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 40, 40), cpct_px2byteM0(4, 4), 35, 144);	
 	PrintFrame(5,40,72,178);
 
-	PrintText("CONGRATULATIONS", 12, 60, 0);
-	PrintText("PLAYER", 12, 70, 0);
+	PrintText("END@MISSION", 12, 60, 0);
 
 	cpct_akp_musicInit(g_completed); // completed level theme
 	Pause(1000);
@@ -612,11 +611,11 @@ void InitScoreboard() {
 	PrintText("<", 28, 15, 1); PrintText("00", 32, 15, 1);	// potion score
 
 
-		PrintText("HIGH:", 44, 6 , 1);
-		PrintText("00000", 61, 6, 1); 
-		PrintNumber(highScore, 5, 61, 6, 1); // high score
-		cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 60, 16), cpct_px2byteM0(BG_COLOR, BG_COLOR), 16, 8); // key
-		PrintText("KEY:", 47, 15, 1);
+	PrintText("HIGH:", 44, 6 , 1);
+	PrintText("00000", 61, 6, 1); 
+	PrintNumber(highScore, 5, 61, 6, 1); // high score
+	cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 60, 16), cpct_px2byteM0(BG_COLOR, BG_COLOR), 16, 8); // key
+	PrintText("KEY:", 47, 15, 1);
 	
 }
 
@@ -631,7 +630,7 @@ void RefreshScoreboard() {
 	PrintText("0", 32, 15, 1);
 	PrintNumber(potScore[0], 2, 32, 15, 1); 			// potion score
 
-		PrintNumber(highScore, 5, 61, 6, 1);
+	PrintNumber(highScore, 5, 61, 6, 1);
 }
 
 
@@ -1928,16 +1927,9 @@ void InitValues() {
 	ctlDown[0] = Key_S;
 	ctlLeft[0] = Key_Q;
 	ctlRight[0] = Key_D;
-	// player 2
-	ctlUp[1] = Key_F5;
-	ctlDown[1] = Key_F2;
-	ctlLeft[1] = Key_F1;
-	ctlRight[1] = Key_F3;
+
 	// common
 	ctlAbort = Key_X;
-	ctlMusic = Key_M;
-	ctlPause = Key_H;	
-
 
 	nTip = 0;
 }

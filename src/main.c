@@ -1956,7 +1956,7 @@ void ResetData() {
 // initialization of some variables
 void InitGame() {
 	StartMenu(); // run the start menu
-	music = TRUE;
+
 	nMap = 0; // initial map number
 	lastNMap = 255;
 	

@@ -1871,6 +1871,7 @@ void EnemyLoop(TSpr *pSpr) __z88dk_fastcall {
 	
 }
 
+
 ///////////////////////////////////////////////////////////////////////////////////
 // MAIN MENU
 ///////////////////////////////////////////////////////////////////////////////////
@@ -1878,16 +1879,11 @@ void EnemyLoop(TSpr *pSpr) __z88dk_fastcall {
 void PrintStartMenu() {
 	ClearScreen();
 
-    // "SORCERERS" logo
 	cpct_drawSprite(g_logo_0, cpctm_screenPtr(CPCT_VMEM_START, 0, 0), G_LOGO_0_W, G_LOGO_0_H);
 	cpct_drawSprite(g_logo_1, cpctm_screenPtr(CPCT_VMEM_START, G_LOGO_0_W, 0), G_LOGO_0_W, G_LOGO_0_H);
 
 	PrintText("COMMANDO", 5, 10, 0);
-    
-
-
 	cpct_drawSpriteMaskedAlignedTable(g_sorcerer1_03, cpct_getScreenPtr(CPCT_VMEM_START, 5, 30), SPR_W, SPR_H, g_maskTable);
-
 }
 
 
@@ -1976,14 +1972,14 @@ void ResetData() {
 	// prints level information if it is the first map load
 	if (nMap != lastNMap) {
 		
-			PrintKey();
-			// reset player1's key only if it's a new map
-			playerKey[0] = 0;
-			playerKey[1] = 0;
-			playerKey[2] = 0;
-			playerKey[3] = 0;
-			playerKey[4] = 0;
-		
+		PrintKey();
+		// reset player1's key only if it's a new map
+		playerKey[0] = 0;
+		playerKey[1] = 0;
+		playerKey[2] = 0;
+		playerKey[3] = 0;
+		playerKey[4] = 0;
+	
 		PrintMap();	
 		lastNMap = nMap;
 	}

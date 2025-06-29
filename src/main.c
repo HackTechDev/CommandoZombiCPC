@@ -1864,6 +1864,8 @@ void PrintStartMenu() {
 void StartMenu() {
 	u8 randSeed = 254;
 	u8 page = 0;
+	
+	cpct_akp_musicInit(g_fx);
 
 	while(1) {
 		// get the seed of randomness based on the time it takes to press a key

@@ -181,7 +181,7 @@ typedef struct {
 } TSpr;
 
 TSpr spr[7];	// 0) sorcerer #1
-
+				// 1) sorcerer #2
 				// 2) enemy #1
 				// 3) enemy #2
 				// 4) enemy #3
@@ -854,8 +854,7 @@ void SetObject(u8 index) __z88dk_fastcall {
 	// the XY of the object will only be valid on background tiles and away from other sprites
 	while (tile > 34 || tile == TILESET_DOOR || // tile is a blocker
 			Abs(objX[0] - objX[1]) < 12 || // near the other object
-			SpriteCollision(objX[index], objY[index], &spr[0], 12) || // near player 1
-			SpriteCollision(objX[index], objY[index], &spr[1], 12)); // near player 2
+			SpriteCollision(objX[index], objY[index], &spr[0], 12) ); // near player 2
 
 	if (nObj[index] == 22) nObj[index] = 1; // slightly more chance of showing 5 coins
 	else if (nObj[index] == 21) nObj[index] = 3; // slightly more chance of powerUps showing up
@@ -1164,7 +1163,6 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 	// leave the game
 	else if(cpct_isKeyPressed(ctlAbort)) {
 		spr[0].lives_speed = 0;
-		spr[1].lives_speed = 0;
 		GameOver(2);
 	}
 	// beta testing helper /////////////////////////////////////////
@@ -1401,8 +1399,9 @@ void MoveEnemy(TSpr *pSpr) {
 			}
 			// WITCH! activates shooting when the Y position coincides with the players
 			if (pSpr->ident == WITCH) {
-				if (pSpr->y > (spr[0].y - SHT_H) && pSpr->y < (spr[0].y + SHT_H)) z = 0; // P1
-				else if (pSpr->y > (spr[1].y - SHT_H) && pSpr->y < (spr[1].y + SHT_H)) z = 1; // P2
+				if (pSpr->y > (spr[0].y - SHT_H) && pSpr->y < (spr[0].y + SHT_H)) 
+					z = 0; // P1
+				
 				if (z < 255) {
 					if (spr[z].x > pSpr->x) pSpr->dir = D_right; 
 					else pSpr->dir = D_left;
@@ -1924,12 +1923,6 @@ void ResetData() {
 	spr[0].print_minV = TRUE; // the first time must be printed on screen
 	spr[0].power_maxV = 0;
 	ctInactivity[0] = 0;
-
-	spr[1].dir = D_left; 
-	spr[1].status = S_stopped;	
-	spr[1].print_minV = TRUE; // the first time must be printed on screen
-	spr[1].power_maxV = 0;
-	ctInactivity[1] = 0;
 	
 	SetEnemies();
 	PrintMap();
@@ -2071,7 +2064,7 @@ void main(void) {
 
 				// decrease the powerUp value of the players
 				if (spr[0].power_maxV > 0) spr[0].power_maxV--;
-				if (spr[1].power_maxV > 0) spr[1].power_maxV--;			
+				
 			}
 		}
 		

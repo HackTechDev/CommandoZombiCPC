@@ -2010,7 +2010,6 @@ void GameOver(u8 player) {
 		ResetData();
 	}
 	else { // prepare a new game
-		cpct_akp_musicInit(g_end); // game over music
 		// puts 0 life on the scoreboard of the losing player
 		spr[player].lives_speed = 0;
 		RefreshScoreboard();
@@ -2019,7 +2018,7 @@ void GameOver(u8 player) {
 		cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 40, 80), cpct_px2byteM0(4, 4), 34, 60);
 		PrintFrame(6,80,71,134);
 	
-			PrintText("G@A@M@E@@O@V@E@R", 16, 107, 0);
+		PrintText("K@I@L@L@E@D", 16, 107, 0);
 		Pause(500);	
 		// wait for a key press
 		while (!cpct_isAnyKeyPressed());

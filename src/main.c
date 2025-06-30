@@ -117,6 +117,8 @@ u8 nMap; // current level number
 u8 lastNMap; // has been a level change?
 u8 *lName; // text to display on screen for each level
 
+u8 currentTileNumber = -1;
+
 // other global variables
 u16 score[2];		// score of both players
 u16 highScore;		// maximum score of the entire session
@@ -140,8 +142,8 @@ cpct_keyID ctlDown[2];
 cpct_keyID ctlLeft[2];
 cpct_keyID ctlRight[2];
 cpct_keyID ctlAbort;
-cpct_keyID ctlMusic;  
-cpct_keyID ctlPause;
+cpct_keyID ctlKeyP;  
+
 
 // frame of the sprite to print
 typedef struct {
@@ -964,6 +966,8 @@ void CheckActiveTile(u8 player) {
 			spr[0].objNum_mov == 5 && CompareKeys()) {
 		PrintText("EXITDOOR", 16, 91, 0);
 	}
+
+	currentTileNumber = currentTile;
 }
 
 
@@ -1155,6 +1159,8 @@ void WalkIn(TSpr *pSpr, u8 dir) {
 
 // stands still
 void Stop(TSpr *pSpr) __z88dk_fastcall {
+	
+
 	cpct_scanKeyboard_f(); // check the pressed keys
 	if(cpct_isKeyPressed(ctlUp[pSpr->ident]))			WalkIn(pSpr, D_up);
 	else if(cpct_isKeyPressed(ctlDown[pSpr->ident]))	WalkIn(pSpr, D_down);
@@ -1165,13 +1171,28 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 		spr[0].lives_speed = 0;
 		GameOver(2);
 	}
+	else if(cpct_isKeyPressed(ctlKeyP)) {
+		PrintNumber(nMap, 2, 15, 185, 1);
+  		PrintNumber(currentTileNumber, 2, 25, 185, 1);
+	}
 	// beta testing helper /////////////////////////////////////////
 	else if(cpct_isKeyPressed(Key_Space)) {
+	
+		if (nMap == 0 && currentTileNumber == 18) {
+			nMap = 3;
+		}
+		/*
+		else if (nMap == 3 && (currentTileNumber == 18 ) ) {
+			nMap = 0;
+		}*/
+
+		/*
 		if (nMap < 11) 
 			nMap++; // go to the next screen on the map
 		else
 			nMap = 0;
-		
+		*/
+
 		// reset data related to object collection
 		ResetObjData(0);
 		ResetObjData(1);		
@@ -1906,6 +1927,8 @@ void InitValues() {
 
 	// common
 	ctlAbort = Key_X;
+
+	ctlKeyP = Key_P;
 
 	nTip = 0;
 }

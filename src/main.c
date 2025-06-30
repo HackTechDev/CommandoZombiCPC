@@ -116,6 +116,8 @@
 u8 nMap; // current level number
 u8 lastNMap; // has been a level change?
 u8 *lName; // text to display on screen for each level
+u8 previousMap;
+u8 changeMap;
 
 u8 currentTileNumber = -1;
 
@@ -1159,7 +1161,7 @@ void WalkIn(TSpr *pSpr, u8 dir) {
 
 // stands still
 void Stop(TSpr *pSpr) __z88dk_fastcall {
-	
+	changeMap = 0;
 
 	cpct_scanKeyboard_f(); // check the pressed keys
 	if(cpct_isKeyPressed(ctlUp[pSpr->ident]))			WalkIn(pSpr, D_up);
@@ -1171,33 +1173,33 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 		spr[0].lives_speed = 0;
 		GameOver(2);
 	}
-	else if(cpct_isKeyPressed(ctlKeyP)) {
+	else if(cpct_isKeyPressed(ctlKeyP)) { // Print
+		PrintNumber(previousMap, 2, 5, 185, 1);
 		PrintNumber(nMap, 2, 15, 185, 1);
   		PrintNumber(currentTileNumber, 2, 25, 185, 1);
-	}
-	// beta testing helper /////////////////////////////////////////
-	else if(cpct_isKeyPressed(Key_Space)) {
-	
-		if (nMap == 0 && currentTileNumber == 18) {
-			nMap = 3;
-		}
-		/*
-		else if (nMap == 3 && (currentTileNumber == 18 ) ) {
-			nMap = 0;
-		}*/
 
-		/*
-		if (nMap < 11) 
-			nMap++; // go to the next screen on the map
-		else
+		PrintNumber(spr[0].px, 2, 45, 185, 1); 
+		PrintNumber(spr[0].py, 2, 55, 185, 1);	
+	}
+	else if(cpct_isKeyPressed(Key_Space)) { // Change map
+		previousMap = nMap;
+		if (nMap == 0 && currentTileNumber == 18 && spr[0].px >= 27 && spr[0].px <= 32 && spr[0].py >= 184 && spr[0].py <= 184) {
+			nMap = 2;
+			changeMap = 1;
+		}
+		else if (nMap == 2 && currentTileNumber == 18 && spr[0].px >= 19 && spr[0].px <= 33 && spr[0].py >= 48 && spr[0].py <= 48) {
 			nMap = 0;
-		*/
+			changeMap = 1;
+		}
 
 		// reset data related to object collection
-		ResetObjData(0);
-		ResetObjData(1);		
-		InitScoreboard();
-		ResetData();
+		if (changeMap == 1) {
+			ResetObjData(0); 
+			ResetObjData(1);		
+			InitScoreboard();
+			ResetData();
+			changeMap = 0;
+		}
 	}
 	////////////////////////////////////////////////////////////////
 	
@@ -1975,6 +1977,7 @@ void ResetData() {
 void InitGame() {
 	StartMenu(); // run the start menu
 
+	previousMap = 0;
 	nMap = 0; // initial map number
 	lastNMap = 255;
 	

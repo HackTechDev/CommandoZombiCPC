@@ -1182,7 +1182,7 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 		PrintNumber(spr[0].px, 2, 45, 185, 1); 
 		PrintNumber(spr[0].py, 2, 55, 185, 1);	
 	}
-	else if(cpct_isKeyPressed(Key_Space)) { // Change map
+    if(cpct_isKeyPressed(Key_Space)) { // Change map
 		previousMap = nMap;
 		// 0 => 2
 		if (nMap == 0 && currentTileNumber == 18 && spr[0].px >= 27 && spr[0].px <= 32 && spr[0].py >= 184 && spr[0].py <= 184) {
@@ -1199,14 +1199,44 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 
 
 		// 0 => 1
+		if (nMap == 0 && currentTileNumber == 18 && spr[0].px >= 71 && spr[0].px <= 73 && spr[0].py >= 128 && spr[0].py <= 132) {
+			zoneMap = 3;
+			nMap = 1;
+			changeMap = 1;
+		}
 		// 1 => 0
+		else if (nMap == 1 && currentTileNumber == 18 && spr[0].px >= 1 && spr[0].px <= 4 && spr[0].py >= 96 && spr[0].py <= 100) {
+			zoneMap = 5;
+			nMap = 0;
+			changeMap = 1;
+		}
 
 		// 2 => 3
+		if (nMap == 2 && currentTileNumber == 18 && spr[0].px >= 71 && spr[0].px <= 73 && spr[0].py >= 144 && spr[0].py <= 148) {
+			zoneMap = 7;
+			nMap = 3;
+			changeMap = 1;
+		}
 		// 3 => 2
+		else if (nMap == 3 && currentTileNumber == 18 && spr[0].px >= 1 && spr[0].px <= 4 && spr[0].py >= 100 && spr[0].py <= 102) {
+			zoneMap = 4;
+			nMap = 2;
+			changeMap = 1;
+		}
 
 
 		// 1 => 3
+		if (nMap == 1 && currentTileNumber == 18 && spr[0].px >= 43 && spr[0].px <= 47 && spr[0].py >= 182 && spr[0].py <= 184) {
+			zoneMap = 7;
+			nMap = 3;
+			changeMap = 1;
+		}
 		// 3 => 1
+		else if (nMap == 3 && currentTileNumber == 18 && spr[0].px >= 41 && spr[0].px <= 45 && spr[0].py >= 40 && spr[0].py <= 40) {
+			zoneMap = 8;
+			nMap = 1;
+			changeMap = 1;
+		}
 
 		// reset data related to object collection
 		if (changeMap == 1) {
@@ -1549,6 +1579,10 @@ void SetEnemies() {
 				spr[0].x = spr[0].px = 30; 
 				spr[0].y = spr[0].py = 184;			
 			}
+			if (previousMap == 1 && zoneMap == 5) {
+				spr[0].x = spr[0].px = 72; 
+				spr[0].y = spr[0].py = 130;			
+			}
 
 			// Position of the begin of the game
 			if (previousMap == 0) {
@@ -1578,8 +1612,15 @@ void SetEnemies() {
 			SetEnemyParams(4, KNIGHT, 	M_linear_XY,    D_right,    1, 10,  62,   0,   0);
 			SetEnemyParams(5, KNIGHT,	M_linear_XY,	D_down,     1,  2,  38,   0,   0);
 			// player 1 starting position
-			spr[0].x = spr[0].px = 58; 
-			spr[0].y = spr[0].py = 178;	
+			if (previousMap == 0 && zoneMap == 3) {
+				spr[0].x = spr[0].px = 2; 
+				spr[0].y = spr[0].py = 96;			
+			}
+			if (previousMap == 3 && zoneMap == 8) {
+				spr[0].x = spr[0].px = 45; 
+				spr[0].y = spr[0].py = 183;			
+			}
+
 			// unzip the map
 			cpct_zx7b_decrunch_s(UNPACKED_MAP_END, mappk1_end);
 			// screen title
@@ -1600,13 +1641,17 @@ void SetEnemies() {
 						//SPR IDENTITY	MOVEMENT		DIR     SPEED   X    Y  MIN  MAX
 			SetEnemyParams(2, GHOST,	M_linear_XY, 	D_right,    1,  3, 120,   0,   0);						
 			SetEnemyParams(3, GHOST,	M_linear_XY, 	D_left,     1, 73,  99,   0,   0);
-			//SetEnemyParams(4, BAT,	 	M_linear_X,    	D_right,    1, 22,  58,  22,  60);																		
+			SetEnemyParams(4, BAT,	 	M_linear_X,    	D_right,    1, 22,  58,  22,  60);																		
 			SetEnemyParams(5, WITCH,	M_linear_X,		D_left,     1,  3,  78,   2,  73);
 			// player 1 starting position
 			if (previousMap == 0 && zoneMap == 1) {
 				spr[0].x = spr[0].px = 30; 
 				spr[0].y = spr[0].py = 48;			
 			} 
+			if (previousMap == 3 && zoneMap == 4) {
+				spr[0].x = spr[0].px = 72; 
+				spr[0].y = spr[0].py = 146;			
+			}
 			// unzip the map
 			cpct_zx7b_decrunch_s(UNPACKED_MAP_END, mappk2_end);
 			// screen title
@@ -1630,8 +1675,14 @@ void SetEnemies() {
 			SetEnemyParams(4, GHOST,	M_linear_XY, 	D_left,     1, 70,  40,   0,   0);
 			SetEnemyParams(5, GHOST,	M_linear_XY,	D_left,     1,  2,  40,   0,   0);
 			// player 1 starting position
-			spr[0].x = spr[0].px = 36; 
-			spr[0].y = spr[0].py = 178;			
+			if (previousMap == 1 && zoneMap == 7) {
+				spr[0].x = spr[0].px = 43; 
+				spr[0].y = spr[0].py = 40;			
+			} 
+			if (previousMap == 2 && zoneMap == 7) {
+				spr[0].x = spr[0].px = 2; 
+				spr[0].y = spr[0].py = 102;			
+			}		
 			// unzip the map
 			cpct_zx7b_decrunch_s(UNPACKED_MAP_END, mappk3_end);
 			// screen title

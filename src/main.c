@@ -118,6 +118,7 @@ u8 lastNMap; // has been a level change?
 u8 *lName; // text to display on screen for each level
 u8 previousMap;
 u8 changeMap;
+u8 zoneMap;
 
 u8 currentTileNumber = -1;
 
@@ -1184,10 +1185,12 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 	else if(cpct_isKeyPressed(Key_Space)) { // Change map
 		previousMap = nMap;
 		if (nMap == 0 && currentTileNumber == 18 && spr[0].px >= 27 && spr[0].px <= 32 && spr[0].py >= 184 && spr[0].py <= 184) {
+			zoneMap = 1;
 			nMap = 2;
 			changeMap = 1;
 		}
 		else if (nMap == 2 && currentTileNumber == 18 && spr[0].px >= 19 && spr[0].px <= 33 && spr[0].py >= 48 && spr[0].py <= 48) {
+			zoneMap = 2;
 			nMap = 0;
 			changeMap = 1;
 		}
@@ -1529,8 +1532,16 @@ void SetEnemies() {
 			SetEnemyParams(4, SENTINEL,	M_linear_X, 	D_left,     1, 73,  62,  40,  73);
 			SetEnemyParams(5, SENTINEL,	M_linear_X, 	D_right,    1,  2,  62,   2,  35);
 			// player 1 starting position
-			spr[0].x = spr[0].px = 6; 
-			spr[0].y = spr[0].py = 178;			
+			if (previousMap == 2 && zoneMap == 2) {
+				spr[0].x = spr[0].px = 30; 
+				spr[0].y = spr[0].py = 184;			
+			}
+
+			// Position of the begin of the game
+			if (previousMap == 0) {
+				spr[0].x = spr[0].px = 6; 
+				spr[0].y = spr[0].py = 178;				
+			}
 			// unzip the map
 			cpct_zx7b_decrunch_s(UNPACKED_MAP_END, mappk0_end);
 			// screen title
@@ -1576,11 +1587,13 @@ void SetEnemies() {
 						//SPR IDENTITY	MOVEMENT		DIR     SPEED   X    Y  MIN  MAX
 			SetEnemyParams(2, GHOST,	M_linear_XY, 	D_right,    1,  3, 120,   0,   0);						
 			SetEnemyParams(3, GHOST,	M_linear_XY, 	D_left,     1, 73,  99,   0,   0);
-			SetEnemyParams(4, BAT,	 	M_linear_X,    	D_right,    1, 22,  58,  22,  60);																		
+			//SetEnemyParams(4, BAT,	 	M_linear_X,    	D_right,    1, 22,  58,  22,  60);																		
 			SetEnemyParams(5, WITCH,	M_linear_X,		D_left,     1,  3,  78,   2,  73);
 			// player 1 starting position
-			spr[0].x = spr[0].px = 58; 
-			spr[0].y = spr[0].py = 178;			
+			if (previousMap == 0 && zoneMap == 1) {
+				spr[0].x = spr[0].px = 30; 
+				spr[0].y = spr[0].py = 48;			
+			} 
 			// unzip the map
 			cpct_zx7b_decrunch_s(UNPACKED_MAP_END, mappk2_end);
 			// screen title

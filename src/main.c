@@ -1184,16 +1184,29 @@ void Stop(TSpr *pSpr) __z88dk_fastcall {
 	}
 	else if(cpct_isKeyPressed(Key_Space)) { // Change map
 		previousMap = nMap;
+		// 0 => 2
 		if (nMap == 0 && currentTileNumber == 18 && spr[0].px >= 27 && spr[0].px <= 32 && spr[0].py >= 184 && spr[0].py <= 184) {
 			zoneMap = 1;
 			nMap = 2;
 			changeMap = 1;
 		}
+		// 2 => 0
 		else if (nMap == 2 && currentTileNumber == 18 && spr[0].px >= 19 && spr[0].px <= 33 && spr[0].py >= 48 && spr[0].py <= 48) {
 			zoneMap = 2;
 			nMap = 0;
 			changeMap = 1;
 		}
+
+
+		// 0 => 1
+		// 1 => 0
+
+		// 2 => 3
+		// 3 => 2
+
+
+		// 1 => 3
+		// 3 => 1
 
 		// reset data related to object collection
 		if (changeMap == 1) {

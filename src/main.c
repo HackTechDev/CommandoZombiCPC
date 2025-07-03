@@ -64,7 +64,6 @@
 #include "sfx/start.h"			// start level theme
 #include "sfx/end.h"			// game over theme
 #include "sfx/menu.h"			// main menu theme
-#include "sfx/ingame.h"			// music during game
 #include "sfx/completed.h"		// level completed theme
 
 ///////////////////////////////////////////////////////////////////////////////////

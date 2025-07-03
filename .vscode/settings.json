@@ -3,6 +3,7 @@
         "door.h": "c",
         "sorcerer2.h": "c",
         "sorcerer1.h": "c",
-        "ratio": "c"
+        "ratio": "c",
+        "ingame.h": "c"
     }
 }

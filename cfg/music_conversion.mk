@@ -51,12 +51,12 @@
 
 #$(eval $(call AKS2C,music/song.aks,g_mysong,src/music/,0x42A0))
 
-$(eval $(call AKS2C,sound/start.aks,g_start,src/sfx/,0x0200))
-$(eval $(call AKS2C,sound/end.aks,g_end,src/sfx/,0x032C))
-$(eval $(call AKS2C,sound/completed.aks,g_completed,src/sfx/,0x049E))
+#$(eval $(call AKS2C,sound/start.aks,g_start,src/sfx/,0x0200))
+#$(eval $(call AKS2C,sound/end.aks,g_end,src/sfx/,0x032C))
+#$(eval $(call AKS2C,sound/completed.aks,g_completed,src/sfx/,0x049E))
 $(eval $(call AKS2C,sound/fx.aks,g_fx,src/sfx/,0x05C4,-sfx))
-$(eval $(call AKS2C,sound/ingame.aks,g_ingame,src/sfx/,0x0791))
-$(eval $(call AKS2C,sound/menu.aks,g_menu,src/sfx/,0x0E07))
+#$(eval $(call AKS2C,sound/ingame.aks,g_ingame,src/sfx/,0x0791))
+#$(eval $(call AKS2C,sound/menu.aks,g_menu,src/sfx/,0x0E07))
 
 ############################################################################
 ##              DETAILED INSTRUCTIONS AND PARAMETERS                      ##

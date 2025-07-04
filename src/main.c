@@ -60,10 +60,6 @@
 #include "map/mappk11.h"
 
 #include "sfx/fx.h"				// sound effects
-#include "sfx/start.h"			// start level theme
-#include "sfx/end.h"			// game over theme
-#include "sfx/menu.h"			// main menu theme
-#include "sfx/completed.h"		// level completed theme
 
 #include "lib/constant.h"
 #include "lib/generic.h";
@@ -387,7 +383,6 @@ void PrintSmallBlueBox() {
 }
 
 
-
 void PrintEndGame(u8 player) __z88dk_fastcall {
 	// blue background frame
 	cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 5, 40), cpct_px2byteM0(4, 4), 35, 144);
@@ -396,13 +391,10 @@ void PrintEndGame(u8 player) __z88dk_fastcall {
 
 	PrintText("END@MISSION", 12, 60, 0);
 
-	cpct_akp_musicInit(g_completed); // completed level theme
 	Pause(1000);
 	while (!cpct_isAnyKeyPressed()); // wait for a key press
 	InitGame();
 }
-
-
 
 
 ///////////////////////////////////////////////////////////////////////////////////

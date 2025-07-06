@@ -1369,7 +1369,7 @@ void SetEnemyParams(u8 i, u8 ident, u8 mov, u8 dir, u8 speed, u8 x, u8 y, u8 min
 // for "chaser" movements, the lower SPEED value, the higher speed
 // to avoid flickering assigning enemies 2 and 3 to those with the highest Y and putting a minimum Y
 // enemies 2 and 3 are processed in each iteration of the loop (fast)
-void SetEnemies() {
+void SwitchMap() {
 	switch (nMap) {
 		// gardens #1
 		case 0: {			 
@@ -1832,7 +1832,7 @@ void ResetData() {
 	spr[0].power_maxV = 0;
 	ctInactivity[0] = 0;
 	
-	SetEnemies();
+	SwitchMap();
 	PrintMap();
 	RefreshScoreboard();
 	DeleteObjectInStore();
